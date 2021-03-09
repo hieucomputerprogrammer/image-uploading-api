@@ -1,0 +1,39 @@
+# SLF4J LOGGING CONFIGURATION:
+logging:
+  level:
+    root: trace
+
+# H2 DATABASE CONFIGURATION:
+#spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:images_api
+#    username: sa
+#    password: hieu
+#  jpa:
+#    database: h2
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+# POSTGRESQL DATABASE CONFIGURATION:
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/images_api
+    username: postgres
+    password: postgres
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#  security:
+#    user:
+#      name: hieu
+#      password: hieu

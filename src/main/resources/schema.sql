@@ -1,0 +1,8 @@
+-- CREATE TABLE images(
+--     id BIGINT PRIMARY KEY,
+--     image_as_base65_format BYTEA NOT NULL,
+--     image_title VARCHAR(255),
+--     owner_email VARCHAR(255),
+--     owner_name VARCHAR(255),
+--     owner_phone_number VARCHAR(255),
+-- );
