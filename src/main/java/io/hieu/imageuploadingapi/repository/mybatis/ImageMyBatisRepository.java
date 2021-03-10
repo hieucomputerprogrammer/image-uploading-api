@@ -17,6 +17,22 @@ public interface ImageMyBatisRepository {
     List<Image> findAll();
 
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image WHERE image_title=#{imageTitle}")
+    List<Image> findAllByImageTitle(String imageTitle);
+
+    @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image WHERE owner_name=#{ownerName}")
+    List<Image> findAllByOwnerName(String ownerName);
+
+    @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image WHERE owner_phone_number=#{ownerPhoneNumber}")
+    List<Image> findAllByOwnerPhoneNumber(String ownerPhoneNumber);
+
+    @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image WHERE owner_phone_number=#{ownerPhoneNumber}")
+    List<Image> findAllByOwnerEmail(String ownerEmail);
+
+    @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image " +
             "WHERE id=#{id}")
     Image findById(Long id);

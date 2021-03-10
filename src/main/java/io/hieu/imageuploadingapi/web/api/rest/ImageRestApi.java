@@ -64,7 +64,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findImageById(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getImageById(@PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - findImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - findImageById() method called.");
         this.logger.trace("TRACE: Image REST API - findImageById() method called.");
@@ -82,6 +82,98 @@ public class ImageRestApi {
                 return new ResponseEntity<ImageDto>(this.imageService.findById(id), HttpStatus.FOUND);
             } catch (Exception exception) {
                 return new ResponseEntity<String>("Unknown error(s) occured retrieving image with ID number: " + id + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/filter/image-title/{imageTitle}")
+    public ResponseEntity<?> getImagesByImageTitle(@PathVariable("imageTitle") String imageTitle) {
+        this.logger.info("INFO: Image REST API - getImagesByImageTitle() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesByImageTitle() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesByImageTitle() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesByImageTitle() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesByImageTitle() method called.");
+
+        if (this.imageService.findAllByImageTitle(imageTitle) == null) {
+            try {
+                return new ResponseEntity<String>("No images with title: " + imageTitle + " exists.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images with title: " + imageTitle + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByImageTitle(imageTitle), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images with title: " + imageTitle + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/filter/owner-name/{ownerName}")
+    public ResponseEntity<?> getImagesByOwnerName(@PathVariable("ownerName") String ownerName) {
+        this.logger.info("INFO: Image REST API - getImagesByOwnerName() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesByOwnerName() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesByOwnerName() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesByOwnerName() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesByOwnerName() method called.");
+
+        if (this.imageService.findAllByOwnerName(ownerName) == null) {
+            try {
+                return new ResponseEntity<String>("No images created by owner: " + ownerName + " found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner: " + ownerName + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerName(ownerName), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner: " + ownerName + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/filter/owner-phone-number/{ownerPhoneNumber}")
+    public ResponseEntity<?> getImagesByOwnerPhoneNumber(@PathVariable("ownerPhoneNumber") String ownerPhoneNumber) {
+        this.logger.info("INFO: Image REST API - getImagesByOwnerPhoneNumber() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesByOwnerPhoneNumber() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesByOwnerPhoneNumber() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesByOwnerPhoneNumber() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesByOwnerPhoneNumber() method called.");
+
+        if (this.imageService.findAllByOwnerPhoneNumber(ownerPhoneNumber) == null) {
+            try {
+                return new ResponseEntity<String>("No images created by owner with phone number: " + ownerPhoneNumber + " found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with phone number: " + ownerPhoneNumber + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerPhoneNumber(ownerPhoneNumber), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with phone number: " + ownerPhoneNumber + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/filter/owner-email/{ownerEmail}")
+    public ResponseEntity<?> getImagesByOwnerEmail(@PathVariable("ownerEmail") String ownerEmail) {
+        this.logger.info("INFO: Image REST API - getImagesByOwnerEmail() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesByOwnerEmail() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesByOwnerEmail() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesByOwnerEmail() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesByOwnerEmail() method called.");
+
+        if (this.imageService.findAllByOwnerEmail(ownerEmail) == null) {
+            try {
+                return new ResponseEntity<String>("No images created by owner with email: " + ownerEmail + " found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with email: " + ownerEmail + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerPhoneNumber(ownerEmail), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with email: " + ownerEmail + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
             }
         }
     }

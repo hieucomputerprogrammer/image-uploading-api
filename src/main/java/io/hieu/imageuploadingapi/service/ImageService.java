@@ -9,6 +9,14 @@ public interface ImageService {
 
     List<ImageDto> findAll();
 
+    List<ImageDto> findAllByImageTitle(String imageTitle);
+
+    List<ImageDto> findAllByOwnerName(String ownerName);
+
+    List<ImageDto> findAllByOwnerPhoneNumber(String ownerPhoneNumber);
+
+    List<ImageDto> findAllByOwnerEmail(String ownerEmail);
+
     ImageDto findById(Long id);
 
     ImageDto update(Long id, ImageDto imageDto);

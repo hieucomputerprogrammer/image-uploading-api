@@ -68,6 +68,98 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    public List<ImageDto> findAllByImageTitle(String imageTitle) {
+        this.logger.info("INFO: Image Service - findAllByImageTitle() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByImageTitle() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByImageTitle() method called.");
+        this.logger.warn("WARN: Image Service - findAllByImageTitle() method called.");
+        this.logger.error("ERROR: Image Service - findAllByImageTitle() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByImageTitle(imageTitle);
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerName(String ownerName) {
+        this.logger.info("INFO: Image Service - findAllByOwnerName() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerName() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerName() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerName() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerName() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerName(ownerName);
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerPhoneNumber(String ownerPhoneNumber) {
+        this.logger.info("INFO: Image Service - findAllByOwnerPhoneNumber() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerPhoneNumber() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerPhoneNumber() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerPhoneNumber() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerPhoneNumber() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerPhoneNumber(ownerPhoneNumber);
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerEmail(String ownerEmail) {
+        this.logger.info("INFO: Image Service - findAllByOwnerEmail() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerEmail() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerEmail() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerEmail() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerEmail() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerEmail(ownerEmail);
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
     public ImageDto findById(Long id) {
         this.logger.info("INFO: Image Service - findById() method called.");
         this.logger.debug("DEBUG: Image Service - findById() method called.");

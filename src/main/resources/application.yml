@@ -5,48 +5,48 @@
 
 
 # H2 DATABASE CONFIGURATION:
-#spring:
-#  datasource:
-#    driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:images_api
-#    username: sa
-#    password: h2
-#  jpa:
-#    database: h2
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: true
-#    servlet:
-#      multipart:
-#        enabled: true
-#        max-file-size: 5MB
-#        max-request-size: 5MB
-
-
-# POSTGRESQL DATABASE CONFIGURATION:
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/images_api
-    username: postgres
-    password: postgres
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:images_api
+    username: sa
+    password: h2
   jpa:
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
-    hibernate:
-      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
-#  security:
-#    user:
-#      name: hieu
-#      password: hieu
     servlet:
       multipart:
         enabled: true
         max-file-size: 5MB
         max-request-size: 5MB
+
+
+# POSTGRESQL DATABASE CONFIGURATION:
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/images_api
+#    username: postgres
+#    password: postgres
+#  jpa:
+#    database: postgresql
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+##  security:
+##    user:
+##      name: hieu
+##      password: hieu
+#    servlet:
+#      multipart:
+#        enabled: true
+#        max-file-size: 5MB
+#        max-request-size: 5MB
