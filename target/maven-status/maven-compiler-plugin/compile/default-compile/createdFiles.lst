@@ -1,0 +1,12 @@
+io\hieu\imageuploadingapi\ImageUploadingApiApplication.class
+io\hieu\imageuploadingapi\repository\ImageSpringDataJpaRepository.class
+io\hieu\imageuploadingapi\domain\Image.class
+io\hieu\imageuploadingapi\repository\mybatis\ImageMyBatisRepository.class
+io\hieu\imageuploadingapi\dto\model\ImageDto.class
+io\hieu\imageuploadingapi\service\impl\ImageServiceImpl.class
+io\hieu\imageuploadingapi\dto\mapper\ImageMapper.class
+io\hieu\imageuploadingapi\web\controller\ImageController.class
+io\hieu\imageuploadingapi\config\ApplicationConfiguration.class
+io\hieu\imageuploadingapi\web\api\rest\ImageRestApi.class
+io\hieu\imageuploadingapi\service\ImageService.class
+io\hieu\imageuploadingapi\config\OpenApiConfiguration.class
