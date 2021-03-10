@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class ImageDto {
-    private Long Id;
+    private Long id;
     private byte[] imageAsBase64Format;
     private String imageTitle;
     private String ownerName;
@@ -15,7 +15,7 @@ public class ImageDto {
     }
 
     public ImageDto(Long id, byte[] imageAsBase64Format, String imageTitle, String ownerName, String ownerPhoneNumber, String ownerEmail) {
-        Id = id;
+        this.id = id;
         this.imageAsBase64Format = imageAsBase64Format;
         this.imageTitle = imageTitle;
         this.ownerName = ownerName;
@@ -24,11 +24,11 @@ public class ImageDto {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public byte[] getImageAsBase64Format() {
@@ -76,7 +76,7 @@ public class ImageDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ImageDto imageDto = (ImageDto) o;
-        return Objects.equals(Id, imageDto.Id) &&
+        return Objects.equals(id, imageDto.id) &&
                 Arrays.equals(imageAsBase64Format, imageDto.imageAsBase64Format) &&
                 Objects.equals(imageTitle, imageDto.imageTitle) &&
                 Objects.equals(ownerName, imageDto.ownerName) &&
@@ -86,13 +86,13 @@ public class ImageDto {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "ImageDto{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", imageAsBase64Format=" + Arrays.toString(imageAsBase64Format) +
                 ", imageTitle='" + imageTitle + '\'' +
                 ", ownerName='" + ownerName + '\'' +

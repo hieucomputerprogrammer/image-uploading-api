@@ -1,14 +1,10 @@
 package io.hieu.imageuploadingapi.domain;
 
-import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-@Entity
 public class Image {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private byte[] imageAsBase64Format;
     private String imageTitle;
     private String ownerName;
@@ -27,11 +23,11 @@ public class Image {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public byte[] getImageAsBase64Format() {
@@ -79,7 +75,7 @@ public class Image {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Image image = (Image) o;
-        return Objects.equals(Id, image.Id) &&
+        return Objects.equals(id, image.id) &&
                 Arrays.equals(imageAsBase64Format, image.imageAsBase64Format) &&
                 Objects.equals(imageTitle, image.imageTitle) &&
                 Objects.equals(ownerName, image.ownerName) &&
@@ -89,13 +85,13 @@ public class Image {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "Image{" +
-                "Id=" + Id +
+                "id=" + id +
                 ", imageAsBase64Format=" + Arrays.toString(imageAsBase64Format) +
                 ", imageTitle='" + imageTitle + '\'' +
                 ", ownerName='" + ownerName + '\'' +
