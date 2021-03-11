@@ -29,26 +29,21 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
     public void writeTableHeader(PdfPTable pdfPTable) {
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.ORANGE);
-        cell.setPadding(5);
+        cell.setPadding(8);
 
         Font font = FontFactory.getFont(FontFactory.HELVETICA);
         font.setColor(Color.WHITE);
 
         cell.setPhrase(new Phrase("Image ID", font));
         pdfPTable.addCell(cell);
-
         cell.setPhrase(new Phrase("Image as Base64 Format", font));
         pdfPTable.addCell(cell);
-
         cell.setPhrase(new Phrase("Image Title", font));
         pdfPTable.addCell(cell);
-
         cell.setPhrase(new Phrase("Owner's Name", font));
         pdfPTable.addCell(cell);
-
         cell.setPhrase(new Phrase("Owner's Phone Number", font));
         pdfPTable.addCell(cell);
-
         cell.setPhrase(new Phrase("Owner's E-Mail", font));
         pdfPTable.addCell(cell);
     }
@@ -72,7 +67,7 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
         document.open();
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-        font.setSize(40);
+        font.setSize(30);
         font.setColor(Color.BLUE);
 
         Paragraph paragraph = new Paragraph("IMAGES", font);

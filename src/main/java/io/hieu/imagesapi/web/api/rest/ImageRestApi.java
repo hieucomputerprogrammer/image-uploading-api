@@ -1,10 +1,7 @@
 package io.hieu.imagesapi.web.api.rest;
 
 import com.lowagie.text.DocumentException;
-import io.hieu.imagesapi.domain.Image;
-import io.hieu.imagesapi.dto.mapper.ImageMapper;
 import io.hieu.imagesapi.dto.model.ImageDto;
-import io.hieu.imagesapi.service.ExportToPdfService;
 import io.hieu.imagesapi.service.ImageService;
 import io.hieu.imagesapi.service.impl.ExportToPdfServiceImpl;
 import org.slf4j.Logger;
@@ -18,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
