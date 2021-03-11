@@ -1,6 +1,6 @@
-io\hieu\imageuploadingapi\service\impl\ImageServiceImplTest.class
-io\hieu\imageuploadingapi\domain\ImageTest.class
-io\hieu\imageuploadingapi\repository\mybatis\ImageMyBatisRepositoryTest.class
-io\hieu\imageuploadingapi\ImageUploadingApiApplicationTests.class
-io\hieu\imageuploadingapi\web\api\rest\ImageRestApiTest.class
-io\hieu\imageuploadingapi\web\controller\ImageControllerTest.class
+io\hieu\imagesapi\web\api\rest\ImageRestApiTest.class
+io\hieu\imagesapi\web\controller\ImageControllerTest.class
+io\hieu\imagesapi\ImagesApiApplicationTests.class
+io\hieu\imagesapi\domain\ImageTest.class
+io\hieu\imagesapi\repository\mybatis\ImageMyBatisRepositoryTest.class
+io\hieu\imagesapi\service\impl\ImageServiceImplTest.class

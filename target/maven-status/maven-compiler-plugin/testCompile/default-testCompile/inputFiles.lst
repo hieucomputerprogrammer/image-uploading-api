@@ -1,6 +1,6 @@
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\web\controller\ImageControllerTest.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\domain\ImageTest.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\ImageUploadingApiApplicationTests.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\repository\mybatis\ImageMyBatisRepositoryTest.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\web\api\rest\ImageRestApiTest.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imageuploadingapi\service\impl\ImageServiceImplTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\domain\ImageTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\web\api\rest\ImageRestApiTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\ImagesApiApplicationTests.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\repository\mybatis\ImageMyBatisRepositoryTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\web\controller\ImageControllerTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\service\impl\ImageServiceImplTest.java

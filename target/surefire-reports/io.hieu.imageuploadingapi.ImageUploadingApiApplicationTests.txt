@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: io.hieu.imageuploadingapi.ImageUploadingApiApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.102 s - in io.hieu.imageuploadingapi.ImageUploadingApiApplicationTests
