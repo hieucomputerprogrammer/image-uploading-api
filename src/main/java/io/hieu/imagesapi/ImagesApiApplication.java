@@ -1,0 +1,15 @@
+package io.hieu.imagesapi;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ImagesApiApplication {
+    private Logger logger = LoggerFactory.getLogger(ImagesApiApplication.class);
+
+    public static void main(String[] args) {
+        SpringApplication.run(ImagesApiApplication.class, args);
+    }
+}
