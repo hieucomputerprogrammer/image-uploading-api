@@ -192,11 +192,12 @@ public class ImageRestApi {
     @GetMapping("/export-to-pdf")
     public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
         httpServletResponse.setContentType("application/pdf");
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDateTime = dateFormat.format(new Date());
 
         String httpResponseHeaderKey = "Content-Disposition";
-        String httpResponseHeaderValue = "attachment; filename=images_" + currentDateTime + ".pdf";
+        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + ".pdf";
         httpServletResponse.setHeader(httpResponseHeaderKey, httpResponseHeaderValue);
 
         ExportToPdfServiceImpl exportTopdfServiceImpl = new ExportToPdfServiceImpl(this.imageService.findAll());
