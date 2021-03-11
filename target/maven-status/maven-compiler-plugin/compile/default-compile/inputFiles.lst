@@ -1,12 +1,12 @@
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\repository\mybatis\ImageMyBatisRepository.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\web\api\rest\ImageRestApi.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\config\ApplicationConfiguration.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\config\OpenApiConfiguration.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\domain\Image.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\repository\ImageSpringDataJpaRepository.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\web\controller\ImageController.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\dto\mapper\ImageMapper.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\service\ImageService.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\ImageUploadingApiApplication.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\service\impl\ImageServiceImpl.java
-D:\Hieu\Java\Java Projects\Image Uploading API\image-uploading-api\src\main\java\io\hieu\imageuploadingapi\dto\model\ImageDto.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\dto\mapper\ImageMapper.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\repository\ImageSpringDataJpaRepository.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\service\impl\ImageServiceImpl.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\config\ApplicationConfiguration.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\repository\mybatis\ImageMyBatisRepository.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\service\ImageService.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\web\controller\ImageController.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\config\OpenApiConfiguration.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\domain\Image.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\web\api\rest\ImageRestApi.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\ImageUploadingApiApplication.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imageuploadingapi\dto\model\ImageDto.java

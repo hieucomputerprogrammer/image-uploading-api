@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.hieu</groupId>
-    <artifactId>image-uploading-api</artifactId>
+    <artifactId>images-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>image-uploading-api</name>
-    <description>Image Uploading API</description>
+    <name>imageS-api</name>
+    <description>Images API</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -120,7 +120,22 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--        <dependency>-->
 <!--            <groupId>org.springframework.security</groupId>-->
 <!--            <artifactId>spring-security-test</artifactId>-->
 <!--            <scope>test</scope>-->
