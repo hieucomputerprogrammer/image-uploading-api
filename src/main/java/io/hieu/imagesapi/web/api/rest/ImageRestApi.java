@@ -1,7 +1,12 @@
 package io.hieu.imagesapi.web.api.rest;
 
+import com.lowagie.text.DocumentException;
+import io.hieu.imagesapi.domain.Image;
+import io.hieu.imagesapi.dto.mapper.ImageMapper;
 import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.ExportToPdfService;
 import io.hieu.imagesapi.service.ImageService;
+import io.hieu.imagesapi.service.impl.ExportToPdfServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +14,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -176,6 +187,20 @@ public class ImageRestApi {
                 return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with email: " + ownerEmail + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
             }
         }
+    }
+
+    @GetMapping("/export-to-pdf")
+    public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
+        httpServletResponse.setContentType("application/pdf");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormat.format(new Date());
+
+        String httpResponseHeaderKey = "Content-Disposition";
+        String httpResponseHeaderValue = "attachment; filename=images_" + currentDateTime + ".pdf";
+        httpServletResponse.setHeader(httpResponseHeaderKey, httpResponseHeaderValue);
+
+        ExportToPdfServiceImpl exportTopdfServiceImpl = new ExportToPdfServiceImpl(this.imageService.findAll());
+        exportTopdfServiceImpl.export(httpServletResponse);
     }
 
     @PutMapping("/{id}")
