@@ -27,6 +27,12 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
     @Override
     public void writeTableHeader(PdfPTable pdfPTable) {
+        this.logger.info("INFO: Export to PDF Service - writeTableHeader() method called.");
+        this.logger.debug("DEBUG: Export to PDF Service - writeTableHeader() method called.");
+        this.logger.trace("TRACE: Export to PDF Service - writeTableHeader() method called.");
+        this.logger.warn("WARN: Export to PDF Service - writeTableHeader() method called.");
+        this.logger.error("ERROR: Export to PDF Service - writeTableHeader() method called.");
+
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.ORANGE);
         cell.setPadding(8);
@@ -50,6 +56,12 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
     @Override
     public void writeTableData(PdfPTable pdfPTable) {
+        this.logger.info("INFO: Export to PDF Service - writeTableData() method called.");
+        this.logger.debug("DEBUG: Export to PDF Service - writeTableData() method called.");
+        this.logger.trace("TRACE: Export to PDF Service - writeTableData() method called.");
+        this.logger.warn("WARN: Export to PDF Service - writeTableData() method called.");
+        this.logger.error("ERROR: Export to PDF Service - writeTableData() method called.");
+
         for (ImageDto imageDto : imageDtos) {
             pdfPTable.addCell(String.valueOf(imageDto.getId()));
             pdfPTable.addCell(String.valueOf(imageDto.getImageAsBase64Format()));
@@ -62,6 +74,12 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
     @Override
     public void export(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
+        this.logger.info("INFO: Export to PDF Service - export() method called.");
+        this.logger.debug("DEBUG: Export to PDF Service - export() method called.");
+        this.logger.trace("TRACE: Export to PDF Service - export() method called.");
+        this.logger.warn("WARN: Export to PDF Service - export() method called.");
+        this.logger.error("ERROR: Export to PDF Service - export() method called.");
+
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, httpServletResponse.getOutputStream());
 

@@ -6,6 +6,8 @@ io\hieu\imagesapi\config\ApplicationConfiguration.class
 io\hieu\imagesapi\dto\mapper\ImageMapper.class
 io\hieu\imagesapi\web\api\rest\ImageRestApi.class
 io\hieu\imagesapi\dto\model\ImageDto.class
+io\hieu\imagesapi\service\ExportToMsExcelService.class
+io\hieu\imagesapi\service\impl\ExportToMsExcelServiceImpl.class
 io\hieu\imagesapi\web\controller\ImageController.class
 io\hieu\imagesapi\domain\Image.class
 io\hieu\imagesapi\service\ExportToPdfService.class

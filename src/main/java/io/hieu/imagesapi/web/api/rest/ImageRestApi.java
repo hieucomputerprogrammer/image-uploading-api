@@ -200,6 +200,24 @@ public class ImageRestApi {
         exportTopdfServiceImpl.export(httpServletResponse);
     }
 
+    @GetMapping("/export-to-microsoft-excel")
+    public void exportToMsExcel(HttpServletResponse httpServletResponse) throws IOException {
+        httpServletResponse.setContentType("application/octet-stream");
+//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=Images_" + currentDateTime + ".xlsx";
+        httpServletResponse.setHeader(headerKey, headerValue);
+
+        List<ImageDto> imageDtos = this.imageService.findAll();
+
+        ExportToPdfServiceImpl exportToPdfServiceImpl = new ExportToPdfServiceImpl(imageDtos);
+
+        exportToPdfServiceImpl.export(httpServletResponse);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> updateImage(@PathVariable("id") Long id, @RequestBody ImageDto imageDto) {
         this.logger.info("INFO: Image REST API - updateImage() method called.");
