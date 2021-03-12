@@ -4,6 +4,7 @@ import io.hieu.imagesapi.domain.Image;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ImageMyBatisRepository {
@@ -15,6 +16,10 @@ public interface ImageMyBatisRepository {
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image")
     List<Image> findAll();
+
+    @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image LIMIT #{page}, #{size}")
+    List<Image> findAllPaginated(Map<String, Integer> pageable);
 
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image WHERE image_title=#{imageTitle}")

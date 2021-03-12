@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -53,6 +55,39 @@ public class ImageServiceImpl implements ImageService {
         } else {
             try {
                 List<Image> images = this.imageMyBatisRepository.findAll();
+                List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+                for (Image image : images) {
+                    imageDtos.add(ImageMapper.toDto(image));
+                }
+
+                return imageDtos;
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllPaginated(Map<String, Integer> pageable) {
+        this.logger.info("INFO: Image Service - findAllPaginated() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllPaginated() method called.");
+        this.logger.trace("TRACE: Image Service - findAllPaginated() method called.");
+        this.logger.warn("WARN: Image Service - findAllPaginated() method called.");
+        this.logger.error("ERROR: Image Service - findAllPaginated() method called.");
+
+        int page = 2;
+        int size = 5;
+        pageable = new HashMap<String, Integer>();
+        pageable.put("page", (page - 1) * size);
+        pageable.put("size", size);
+
+        if (this.imageMyBatisRepository.findAllPaginated(pageable).isEmpty()) {
+            return null;
+        } else {
+            try {
+                List<Image> images = this.imageMyBatisRepository.findAllPaginated(pageable);
                 List<ImageDto> imageDtos = new ArrayList<ImageDto>();
                 for (Image image : images) {
                     imageDtos.add(ImageMapper.toDto(image));

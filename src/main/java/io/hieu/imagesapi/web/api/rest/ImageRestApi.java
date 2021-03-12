@@ -3,6 +3,7 @@ package io.hieu.imagesapi.web.api.rest;
 import com.lowagie.text.DocumentException;
 import io.hieu.imagesapi.dto.model.ImageDto;
 import io.hieu.imagesapi.service.ImageService;
+import io.hieu.imagesapi.service.impl.ExportToMsExcelServiceImpl;
 import io.hieu.imagesapi.service.impl.ExportToPdfServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +34,7 @@ public class ImageRestApi {
     }
 
     @PostMapping
-    public ResponseEntity<?> addImage(@RequestBody ImageDto imageDto) {
+    public ResponseEntity<?> addImage(final @RequestBody ImageDto imageDto) {
         this.logger.info("INFO: Image REST API - addImage() method called.");
         this.logger.debug("DEBUG: Image REST API - addImage() method called.");
         this.logger.trace("TRACE: Image REST API - addImage() method called.");
@@ -74,7 +75,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getImageById(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - findImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - findImageById() method called.");
         this.logger.trace("TRACE: Image REST API - findImageById() method called.");
@@ -97,7 +98,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/filter/image-title/{imageTitle}")
-    public ResponseEntity<?> getImagesByImageTitle(@PathVariable("imageTitle") String imageTitle) {
+    public ResponseEntity<?> getImagesByImageTitle(final @PathVariable("imageTitle") String imageTitle) {
         this.logger.info("INFO: Image REST API - getImagesByImageTitle() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByImageTitle() method called.");
         this.logger.trace("TRACE: Image REST API - getImagesByImageTitle() method called.");
@@ -120,7 +121,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/filter/owner-name/{ownerName}")
-    public ResponseEntity<?> getImagesByOwnerName(@PathVariable("ownerName") String ownerName) {
+    public ResponseEntity<?> getImagesByOwnerName(final @PathVariable("ownerName") String ownerName) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerName() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerName() method called.");
         this.logger.trace("TRACE: Image REST API - getImagesByOwnerName() method called.");
@@ -143,7 +144,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/filter/owner-phone-number/{ownerPhoneNumber}")
-    public ResponseEntity<?> getImagesByOwnerPhoneNumber(@PathVariable("ownerPhoneNumber") String ownerPhoneNumber) {
+    public ResponseEntity<?> getImagesByOwnerPhoneNumber(final @PathVariable("ownerPhoneNumber") String ownerPhoneNumber) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerPhoneNumber() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerPhoneNumber() method called.");
         this.logger.trace("TRACE: Image REST API - getImagesByOwnerPhoneNumber() method called.");
@@ -166,7 +167,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/filter/owner-email/{ownerEmail}")
-    public ResponseEntity<?> getImagesByOwnerEmail(@PathVariable("ownerEmail") String ownerEmail) {
+    public ResponseEntity<?> getImagesByOwnerEmail(final @PathVariable("ownerEmail") String ownerEmail) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerEmail() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerEmail() method called.");
         this.logger.trace("TRACE: Image REST API - getImagesByOwnerEmail() method called.");
@@ -188,31 +189,34 @@ public class ImageRestApi {
         }
     }
 
-    private void exportToFile(HttpServletResponse httpServletResponse, String fileType) throws IOException {
+    @GetMapping("/export-to-pdf")
+    public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
+        httpServletResponse.setContentType("application/pdf");
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDateTime = dateFormat.format(new Date());
 
         String httpResponseHeaderKey = "Content-Disposition";
-        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + fileType;
+        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + ".pdf";
         httpServletResponse.setHeader(httpResponseHeaderKey, httpResponseHeaderValue);
 
         ExportToPdfServiceImpl exportTopdfServiceImpl = new ExportToPdfServiceImpl(this.imageService.findAll());
         exportTopdfServiceImpl.export(httpServletResponse);
     }
 
-    @GetMapping("/export-to-pdf")
-    public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
-        httpServletResponse.setContentType("application/pdf");
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        exportToFile(httpServletResponse, ".pdf");
-        return;
-    }
-
     @GetMapping("/export-to-microsoft-excel")
     public void exportToMsExcel(HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.setContentType("application/octet-stream");
 //        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        exportToFile(httpServletResponse, ".xlsx");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String httpResponseHeaderKey = "Content-Disposition";
+        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + ".xlsx";
+        httpServletResponse.setHeader(httpResponseHeaderKey, httpResponseHeaderValue);
+
+        ExportToMsExcelServiceImpl exportToMsExcelServiceImpl = new ExportToMsExcelServiceImpl(this.imageService.findAll());
+        exportToMsExcelServiceImpl.export(httpServletResponse);
     }
 
     @GetMapping("/export-to-csv")
@@ -242,7 +246,7 @@ public class ImageRestApi {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateImage(@PathVariable("id") Long id, @RequestBody ImageDto imageDto) {
+    public ResponseEntity<?> updateImage(final @PathVariable("id") Long id, final @RequestBody ImageDto imageDto) {
         this.logger.info("INFO: Image REST API - updateImage() method called.");
         this.logger.debug("DEBUG: Image REST API - updateImage() method called.");
         this.logger.trace("TRACE: Image REST API - updateImage() method called.");
@@ -265,7 +269,7 @@ public class ImageRestApi {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteImageById(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - deleteImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - deleteImageById() method called.");
         this.logger.trace("TRACE: Image REST API - deleteImageById() method called.");
