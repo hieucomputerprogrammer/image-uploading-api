@@ -67,7 +67,7 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
         document.open();
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-        font.setSize(30);
+        font.setSize(40);
         font.setColor(Color.BLUE);
 
         Paragraph paragraph = new Paragraph("IMAGES", font);
@@ -77,7 +77,7 @@ public class ExportToPdfServiceImpl implements ExportToPdfService {
 
         PdfPTable table = new PdfPTable(6);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[] {10.0f, 20.0f, 10.0f, 15.0f, 20.0f, 25.0f});
+        table.setWidths(new float[] {10.0f, 20.0f, 20.0f, 15.0f, 20.0f, 25.0f});
         table.setSpacingBefore(10);
 
         writeTableHeader(table);
