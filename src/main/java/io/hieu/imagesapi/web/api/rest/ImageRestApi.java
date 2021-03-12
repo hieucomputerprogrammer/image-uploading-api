@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -185,37 +188,57 @@ public class ImageRestApi {
         }
     }
 
-    @GetMapping("/export-to-pdf")
-    public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
-        httpServletResponse.setContentType("application/pdf");
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+    private void exportToFile(HttpServletResponse httpServletResponse, String fileType) throws IOException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String currentDateTime = dateFormat.format(new Date());
 
         String httpResponseHeaderKey = "Content-Disposition";
-        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + ".pdf";
+        String httpResponseHeaderValue = "attachment; filename=Images_" + currentDateTime + fileType;
         httpServletResponse.setHeader(httpResponseHeaderKey, httpResponseHeaderValue);
 
         ExportToPdfServiceImpl exportTopdfServiceImpl = new ExportToPdfServiceImpl(this.imageService.findAll());
         exportTopdfServiceImpl.export(httpServletResponse);
     }
 
+    @GetMapping("/export-to-pdf")
+    public void exportToPdf(HttpServletResponse httpServletResponse) throws DocumentException, IOException {
+        httpServletResponse.setContentType("application/pdf");
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        exportToFile(httpServletResponse, ".pdf");
+        return;
+    }
+
     @GetMapping("/export-to-microsoft-excel")
     public void exportToMsExcel(HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.setContentType("application/octet-stream");
 //        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        exportToFile(httpServletResponse, ".xlsx");
+    }
+
+    @GetMapping("/export-to-csv")
+    public void exportToCsv(HttpServletResponse httpServletResponse) throws IOException {
+        httpServletResponse.setContentType("text/csv");
+//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=Images_" + currentDateTime + ".xlsx";
+        String headerValue = "attachment; filename=Images_" + currentDateTime + ".csv";
         httpServletResponse.setHeader(headerKey, headerValue);
 
         List<ImageDto> imageDtos = this.imageService.findAll();
 
-        ExportToPdfServiceImpl exportToPdfServiceImpl = new ExportToPdfServiceImpl(imageDtos);
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(httpServletResponse.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = {"Image ID", "Image as Base64 Format", "Image Title", "Owner Name", "Owner Phone Number", "Owner E-Mail"};
+        String[] nameMapping = {"id", "imageAsBase64Format", "imageTitle", "ownerName", "ownerPhoneNumber", "ownerEmail"};
 
-        exportToPdfServiceImpl.export(httpServletResponse);
+        csvWriter.writeHeader(csvHeader);
+
+        for (ImageDto imageDto : imageDtos) {
+            csvWriter.write(imageDto, nameMapping);
+        }
+
+        csvWriter.close();
     }
 
     @PutMapping("/{id}")

@@ -13,5 +13,5 @@ public interface ExportToMsExcelService {
 
     void writeDataLines();
 
-    void export(HttpServletResponse response) throws IOException;
+    void export(HttpServletResponse httpServletResponse) throws IOException;
 }

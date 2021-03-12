@@ -10,6 +10,7 @@ import io.hieu.imagesapi.service.ExportToPdfService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@Transactional
 public class ExportToPdfServiceImpl implements ExportToPdfService {
     private final Logger logger = LoggerFactory.getLogger(ExportToPdfServiceImpl.class);
     private List<ImageDto> imageDtos;

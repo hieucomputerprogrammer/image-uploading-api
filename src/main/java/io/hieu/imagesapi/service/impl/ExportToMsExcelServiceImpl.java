@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@Transactional
 public class ExportToMsExcelServiceImpl implements ExportToMsExcelService {
     private final Logger logger = LoggerFactory.getLogger(ExportToPdfServiceImpl.class);
     private XSSFWorkbook xssWorkbook;
@@ -103,7 +105,7 @@ public class ExportToMsExcelServiceImpl implements ExportToMsExcelService {
     }
 
     @Override
-    public void export(HttpServletResponse response) throws IOException {
+    public void export(HttpServletResponse httpServletResponse) throws IOException {
         this.logger.info("INFO: Export to MS Excel Service - export() method called.");
         this.logger.debug("DEBUG: Export to MS Excel Service - export() method called.");
         this.logger.trace("TRACE: Export to MS Excel Service - export() method called.");
@@ -113,7 +115,7 @@ public class ExportToMsExcelServiceImpl implements ExportToMsExcelService {
         writeHeaderLine();
         writeDataLines();
 
-        ServletOutputStream outputStream = response.getOutputStream();
+        ServletOutputStream outputStream = httpServletResponse.getOutputStream();
         this.xssWorkbook.write(outputStream);
         this.xssWorkbook.close();
 
