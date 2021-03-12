@@ -70,24 +70,19 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public List<ImageDto> findAllPaginated(Map<String, Integer> pageable) {
+    public List<ImageDto> findAllPaginated(int page) {
         this.logger.info("INFO: Image Service - findAllPaginated() method called.");
         this.logger.debug("DEBUG: Image Service - findAllPaginated() method called.");
         this.logger.trace("TRACE: Image Service - findAllPaginated() method called.");
         this.logger.warn("WARN: Image Service - findAllPaginated() method called.");
         this.logger.error("ERROR: Image Service - findAllPaginated() method called.");
 
-        int page = 2;
         int size = 5;
-        pageable = new HashMap<String, Integer>();
-        pageable.put("page", (page - 1) * size);
-        pageable.put("size", size);
-
-        if (this.imageMyBatisRepository.findAllPaginated(pageable).isEmpty()) {
+        if (this.imageMyBatisRepository.findAllPaginated(page, size).isEmpty()) {
             return null;
         } else {
             try {
-                List<Image> images = this.imageMyBatisRepository.findAllPaginated(pageable);
+                List<Image> images = this.imageMyBatisRepository.findAllPaginated(page, size);
                 List<ImageDto> imageDtos = new ArrayList<ImageDto>();
                 for (Image image : images) {
                     imageDtos.add(ImageMapper.toDto(image));

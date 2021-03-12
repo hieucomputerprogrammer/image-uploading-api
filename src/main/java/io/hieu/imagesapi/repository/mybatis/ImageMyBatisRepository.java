@@ -18,8 +18,8 @@ public interface ImageMyBatisRepository {
     List<Image> findAll();
 
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
-            "FROM image LIMIT #{page}, #{size}")
-    List<Image> findAllPaginated(Map<String, Integer> pageable);
+            "FROM image LIMIT #{size} OFFSET (#{size} * #{page}) - #{size}")
+    List<Image> findAllPaginated(int page, int size);
 
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image WHERE image_title=#{imageTitle}")

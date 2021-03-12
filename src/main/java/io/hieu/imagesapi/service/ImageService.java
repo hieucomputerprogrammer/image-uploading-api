@@ -3,14 +3,13 @@ package io.hieu.imagesapi.service;
 import io.hieu.imagesapi.dto.model.ImageDto;
 
 import java.util.List;
-import java.util.Map;
 
 public interface ImageService {
     void addImage(ImageDto imageDto);
 
     List<ImageDto> findAll();
 
-    List<ImageDto> findAllPaginated(Map<String, Integer> pageable);
+    List<ImageDto> findAllPaginated(int page);
 
     List<ImageDto> findAllByImageTitle(String imageTitle);
 

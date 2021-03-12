@@ -74,6 +74,29 @@ public class ImageRestApi {
         }
     }
 
+    @GetMapping("/page/{page}")
+    public ResponseEntity<?> getImagesPaginated(final @PathVariable("page") int page) {
+        this.logger.info("INFO: Image REST API - getImagesPaginated() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesPaginated() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesPaginated() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesPaginated() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesPaginated() method called.");
+
+        if (this.imageService.findAllPaginated(page).isEmpty()) {
+            try {
+                return new ResponseEntity<String>("No images exists.", HttpStatus.NO_CONTENT);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving all images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllPaginated(page), HttpStatus.OK);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving all images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - findImageById() method called.");
