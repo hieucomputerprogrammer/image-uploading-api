@@ -5,7 +5,6 @@ import io.hieu.imagesapi.dto.mapper.ImageMapper;
 import io.hieu.imagesapi.dto.model.ImageDto;
 import io.hieu.imagesapi.repository.mybatis.ImageMyBatisRepository;
 import io.hieu.imagesapi.service.ImageService;
-import io.hieu.imagesapi.util.Base64Converter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

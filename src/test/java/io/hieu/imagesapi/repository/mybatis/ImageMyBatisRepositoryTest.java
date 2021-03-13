@@ -5,22 +5,19 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 //@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@TestPropertySource(locations = "classpath:application-test.yml")
 public class ImageMyBatisRepositoryTest {
-    @Autowired
+    @Mock
     private TestEntityManager testEntityManager;
 
-    @Mock
+    @InjectMocks
     private ImageMyBatisRepository imageMyBatisRepository;
 
     @Before
@@ -32,16 +29,20 @@ public class ImageMyBatisRepositoryTest {
     }
 
     @Test
-    public void insert() {
-        Image image = new Image(
+    public void testCreateImage() {
+        Image hieuMinhLe = this.testEntityManager.persist(
+            new Image(
                 "TESTING".getBytes(),
-                "TEST IMAGE",
+                "Hieu Minh Le - Portrait Photo",
                 "Hieu Minh Le",
-                "+84908109633",
+                "+84901234567",
                 "hieu.minhle@outlook.com"
+            )
         );
-        Image savedImage = this.imageMyBatisRepository.insert(image);
-        Assert.assertNotNull(savedImage);
+        Image savedImage = this.imageMyBatisRepository.findById(hieuMinhLe.getId());
+
+        Assert.assertEquals(hieuMinhLe, savedImage);
+        Assert.assertTrue(hieuMinhLe.getId() > 0);
     }
 
     @Test

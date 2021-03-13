@@ -14,6 +14,15 @@ public class Image {
     public Image() {
     }
 
+    public Image(Long id, byte[] imageAsBase64Format, String imageTitle, String ownerName, String ownerPhoneNumber, String ownerEmail) {
+        this.id = id;
+        this.imageAsBase64Format = imageAsBase64Format;
+        this.imageTitle = imageTitle;
+        this.ownerName = ownerName;
+        this.ownerPhoneNumber = ownerPhoneNumber;
+        this.ownerEmail = ownerEmail;
+    }
+
     public Image(byte[] imageAsBase64Format, String imageTitle, String ownerName, String ownerPhoneNumber, String ownerEmail) {
         this.imageAsBase64Format = imageAsBase64Format;
         this.imageTitle = imageTitle;

@@ -33,7 +33,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/images_api
     username: postgres
-    password: # Enter your own password
+    password: postgres
     initialization-mode: always
   jpa:
     database: postgresql

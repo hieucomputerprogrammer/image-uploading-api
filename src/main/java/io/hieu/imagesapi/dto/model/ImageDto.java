@@ -23,6 +23,14 @@ public class ImageDto {
         this.ownerEmail = ownerEmail;
     }
 
+    public ImageDto(byte[] imageAsBase64Format, String imageTitle, String ownerName, String ownerPhoneNumber, String ownerEmail) {
+        this.imageAsBase64Format = imageAsBase64Format;
+        this.imageTitle = imageTitle;
+        this.ownerName = ownerName;
+        this.ownerPhoneNumber = ownerPhoneNumber;
+        this.ownerEmail = ownerEmail;
+    }
+
     public Long getId() {
         return id;
     }
