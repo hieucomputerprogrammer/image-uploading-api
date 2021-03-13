@@ -5,6 +5,7 @@ import io.hieu.imagesapi.dto.model.ImageDto;
 import io.hieu.imagesapi.service.ImageService;
 import io.hieu.imagesapi.service.impl.ExportToMsExcelServiceImpl;
 import io.hieu.imagesapi.service.impl.ExportToPdfServiceImpl;
+import io.hieu.imagesapi.util.Base64Converter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -484,6 +486,33 @@ public class ImageRestApi {
                 return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerEmailDesc(), HttpStatus.FOUND);
             } catch (Exception exception) {
                 return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/convert-base64-to-image/{id}")
+    public ResponseEntity<?> convertBase64ToImage(final @PathVariable("id") Long id) {
+        this.logger.info("INFO: Image REST API - convertBase64ToImage() method called.");
+        this.logger.debug("DEBUG: Image REST API - convertBase64ToImage() method called.");
+        this.logger.trace("TRACE: Image REST API - convertBase64ToImage() method called.");
+        this.logger.warn("WARN: Image REST API - convertBase64ToImage() method called.");
+        this.logger.error("ERROR: Image REST API - convertBase64ToImage() method called.");
+
+        if (this.imageService.findById(id) == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                ImageDto imageDto = this.imageService.findById(id);
+//                byte[] imageAsBase64Format = Base64.getDecoder().decode(imageDto.getImageAsBase64Format().toString().getBytes());
+//                String imageAsBase64FormatAsJavaString = new String(imageAsBase64Format);
+                Base64Converter.base64ToImage(new String(imageDto.getImageAsBase64Format()), "classpath:/resources/static/img/Base 64 Decoded Images/");
+                return new ResponseEntity<String>("Successfully converted Base64 code to image.", HttpStatus.OK);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured converting Base64 code to image." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
             }
         }
     }
