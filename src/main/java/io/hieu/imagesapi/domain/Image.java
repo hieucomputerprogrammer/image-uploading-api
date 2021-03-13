@@ -1,9 +1,14 @@
 package io.hieu.imagesapi.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
+
 import java.util.Arrays;
 import java.util.Objects;
 
+//@RedisHash("Image")
 public class Image {
+//    @Id
     private Long id;
     private byte[] imageAsBase64Format;
     private String imageTitle;
