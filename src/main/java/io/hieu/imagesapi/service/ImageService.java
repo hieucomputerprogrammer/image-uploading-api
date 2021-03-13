@@ -19,6 +19,30 @@ public interface ImageService {
 
     List<ImageDto> findAllByOwnerEmail(String ownerEmail);
 
+    List<ImageDto> findAllByIdAsc();
+
+    List<ImageDto> findAllByIdDesc();
+
+    List<ImageDto> findAllByImageAsBase64FormatAsc();
+
+    List<ImageDto> findAllByImageAsBase64FormatDesc();
+
+    List<ImageDto> findAllByImageTitleAsc();
+
+    List<ImageDto> findAllByImageTitleDesc();
+
+    List<ImageDto> findAllByOwnerNameAsc();
+
+    List<ImageDto> findAllByOwnerNameDesc();
+
+    List<ImageDto> findAllByOwnerPhoneNumberAsc();
+
+    List<ImageDto> findAllByOwnerPhoneNumberDesc();
+
+    List<ImageDto> findAllByOwnerEmailAsc();
+
+    List<ImageDto> findAllByOwnerEmailDesc();
+
     ImageDto findById(Long id);
 
     ImageDto update(Long id, ImageDto imageDto);

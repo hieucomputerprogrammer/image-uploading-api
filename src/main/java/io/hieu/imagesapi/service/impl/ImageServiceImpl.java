@@ -207,6 +207,282 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    public List<ImageDto> findAllByIdAsc() {
+        this.logger.info("INFO: Image Service - findAllByIdAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByIdAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByIdAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByIdAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByIdAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByIdAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByIdDesc() {
+        this.logger.info("INFO: Image Service - findAllByIdDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByIdDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByIdDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByIdDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByIdDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByIdDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByImageAsBase64FormatAsc() {
+        this.logger.info("INFO: Image Service - findAllByImageAsBase64FormatAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByImageAsBase64FormatAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByImageAsBase64FormatAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByImageAsBase64FormatAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByImageAsBase64FormatAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByImageAsBase64FormatAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByImageAsBase64FormatDesc() {
+        this.logger.info("INFO: Image Service - findAllByImageAsBase64FormatDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByImageAsBase64FormatDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByImageAsBase64FormatDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByImageAsBase64FormatDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByImageAsBase64FormatDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByImageAsBase64FormatDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByImageTitleAsc() {
+        this.logger.info("INFO: Image Service - findAllByImageTitleAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByImageTitleAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByImageTitleAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByImageTitleAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByImageTitleAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByImageTitleAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByImageTitleDesc() {
+        this.logger.info("INFO: Image Service - findAllByImageTitleDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByImageTitleDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByImageTitleDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByImageTitleDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByImageTitleDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByImageTitleDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerNameAsc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerNameAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerNameAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerNameAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerNameAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerNameAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerNameAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerNameDesc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerNameDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerNameDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerNameDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerNameDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerNameDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerNameDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerPhoneNumberAsc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerPhoneNumberAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerPhoneNumberAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerPhoneNumberAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerPhoneNumberAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerPhoneNumberAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerPhoneNumberAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerPhoneNumberDesc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerPhoneNumberDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerPhoneNumberDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerPhoneNumberDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerPhoneNumberDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerPhoneNumberDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerPhoneNumberDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerEmailAsc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerEmailAsc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerEmailAsc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerEmailAsc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerEmailAsc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerEmailAsc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerEmailAsc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<ImageDto> findAllByOwnerEmailDesc() {
+        this.logger.info("INFO: Image Service - findAllByOwnerEmailDesc() method called.");
+        this.logger.debug("DEBUG: Image Service - findAllByOwnerEmailDesc() method called.");
+        this.logger.trace("TRACE: Image Service - findAllByOwnerEmailDesc() method called.");
+        this.logger.warn("WARN: Image Service - findAllByOwnerEmailDesc() method called.");
+        this.logger.error("ERROR: Image Service - findAllByOwnerEmailDesc() method called.");
+
+        try {
+            List<Image> images = this.imageMyBatisRepository.findAllByOwnerEmailDesc();
+            List<ImageDto> imageDtos = new ArrayList<ImageDto>();
+            for (Image image : images) {
+                imageDtos.add(ImageMapper.toDto(image));
+            }
+
+            return imageDtos;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
     public ImageDto update(Long id, ImageDto imageDto) {
         this.logger.info("INFO: Image Service - update() method called.");
         this.logger.debug("DEBUG: Image Service - update() method called.");

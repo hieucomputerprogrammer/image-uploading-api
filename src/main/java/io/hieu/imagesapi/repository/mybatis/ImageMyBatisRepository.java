@@ -4,7 +4,6 @@ import io.hieu.imagesapi.domain.Image;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface ImageMyBatisRepository {
@@ -36,6 +35,54 @@ public interface ImageMyBatisRepository {
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image WHERE owner_phone_number=#{ownerPhoneNumber}")
     List<Image> findAllByOwnerEmail(String ownerEmail);
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY id ASC")
+    List<Image> findAllByIdAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY id DESC")
+    List<Image> findAllByIdDesc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY image_as_base64_format ASC")
+    List<Image> findAllByImageAsBase64FormatAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY image_as_base64_format DESC")
+    List<Image> findAllByImageAsBase64FormatDesc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY image_title ASC")
+    List<Image> findAllByImageTitleAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY image_title DESC")
+    List<Image> findAllByImageTitleDesc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_name ASC")
+    List<Image> findAllByOwnerNameAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_name DESC")
+    List<Image> findAllByOwnerNameDesc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_phone_number ASC")
+    List<Image> findAllByOwnerPhoneNumberAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_phone_number DESC")
+    List<Image> findAllByOwnerPhoneNumberDesc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_email ASC")
+    List<Image> findAllByOwnerEmailAsc();
+
+    @Select("SELECT id as id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
+            "FROM image ORDER BY owner_email DESC")
+    List<Image> findAllByOwnerEmailDesc();
 
     @Select("SELECT id AS id, image_as_base64_format AS imageAsBase64Format, image_title AS imageTitle, owner_name AS ownerName, owner_phone_number AS ownerPhoneNumber, owner_email AS ownerEmail " +
             "FROM image " +

@@ -120,7 +120,7 @@ public class ImageRestApi {
         }
     }
 
-    @GetMapping("/filter/image-title/{imageTitle}")
+    @GetMapping("/filter-by/image-title/{imageTitle}")
     public ResponseEntity<?> getImagesByImageTitle(final @PathVariable("imageTitle") String imageTitle) {
         this.logger.info("INFO: Image REST API - getImagesByImageTitle() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByImageTitle() method called.");
@@ -143,7 +143,7 @@ public class ImageRestApi {
         }
     }
 
-    @GetMapping("/filter/owner-name/{ownerName}")
+    @GetMapping("/filter-by/owner-name/{ownerName}")
     public ResponseEntity<?> getImagesByOwnerName(final @PathVariable("ownerName") String ownerName) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerName() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerName() method called.");
@@ -166,7 +166,7 @@ public class ImageRestApi {
         }
     }
 
-    @GetMapping("/filter/owner-phone-number/{ownerPhoneNumber}")
+    @GetMapping("/filter-by/owner-phone-number/{ownerPhoneNumber}")
     public ResponseEntity<?> getImagesByOwnerPhoneNumber(final @PathVariable("ownerPhoneNumber") String ownerPhoneNumber) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerPhoneNumber() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerPhoneNumber() method called.");
@@ -189,7 +189,7 @@ public class ImageRestApi {
         }
     }
 
-    @GetMapping("/filter/owner-email/{ownerEmail}")
+    @GetMapping("/filter-by/owner-email/{ownerEmail}")
     public ResponseEntity<?> getImagesByOwnerEmail(final @PathVariable("ownerEmail") String ownerEmail) {
         this.logger.info("INFO: Image REST API - getImagesByOwnerEmail() method called.");
         this.logger.debug("DEBUG: Image REST API - getImagesByOwnerEmail() method called.");
@@ -208,6 +208,282 @@ public class ImageRestApi {
                 return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerPhoneNumber(ownerEmail), HttpStatus.FOUND);
             } catch (Exception exception) {
                 return new ResponseEntity<String>("Unknown error(s) occured retrieving images created by owner with email: " + ownerEmail + "." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/id/ascending")
+    public ResponseEntity<?> getImagesSortedByIdAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByIdAscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByIdAscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByIdAscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByIdAscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByIdAscending() method called.");
+
+        if (this.imageService.findAllByIdAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByIdAsc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/id/descending")
+    public ResponseEntity<?> getImagesSortedByIdDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByIdDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByIdDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByIdDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByIdDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByIdDescending() method called.");
+
+        if (this.imageService.findAllByIdDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByIdDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/image-as-base-64-format/ascending")
+    public ResponseEntity<?> getImagesSortedByImageAsBase64FormatAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByImageAsBase64FormatAsscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByImageAsBase64FormatAsscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByImageAsBase64FormatAsscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByImageAsBase64FormatAsscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByImageAsBase64FormatAsscending() method called.");
+
+        if (this.imageService.findAllByImageAsBase64FormatAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByIdDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/image-as-base-64-format/descending")
+    public ResponseEntity<?> getImagesSortedByImageAsBase64FormatDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByImageAsBase64FormatDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByImageAsBase64FormatDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByImageAsBase64FormatDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByImageAsBase64FormatDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByImageAsBase64FormatDescending() method called.");
+
+        if (this.imageService.findAllByImageAsBase64FormatDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByImageAsBase64FormatDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/image-title/ascending")
+    public ResponseEntity<?> getImagesSortedByImageTitleAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByImageTitleAscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByImageTitleAscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByImageTitleAscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByImageTitleAscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByImageTitleAscending() method called.");
+
+        if (this.imageService.findAllByImageTitleAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByImageTitleAsc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/image-title/descending")
+    public ResponseEntity<?> getImagesSortedByImageTitleDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByImageTitleDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByImageTitleDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByImageTitleDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByImageTitleDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByImageTitleDescending() method called.");
+
+        if (this.imageService.findAllByImageTitleDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByImageTitleDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-name/ascending")
+    public ResponseEntity<?> getImagesSortedByOwnerNameAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerNameAscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerNameAscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerNameAscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerNameAscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerNameAscending() method called.");
+
+        if (this.imageService.findAllByOwnerNameAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerNameAsc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-name/descending")
+    public ResponseEntity<?> getImagesSortedByOwnerNameDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerNameDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerNameDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerNameDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerNameDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerNameDescending() method called.");
+
+        if (this.imageService.findAllByOwnerNameDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerNameDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-phone-number/ascending")
+    public ResponseEntity<?> getImagesSortedByOwnerPhoneNumberAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerPhoneNumberAscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerPhoneNumberAscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerPhoneNumberAscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerPhoneNumberAscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerPhoneNumberAscending() method called.");
+
+        if (this.imageService.findAllByOwnerPhoneNumberAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerPhoneNumberAsc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-phone-number/descending")
+    public ResponseEntity<?> getImagesSortedByOwnerPhoneNumberDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerPhoneNumberDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerPhoneNumberDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerPhoneNumberDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerPhoneNumberDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerPhoneNumberDescending() method called.");
+
+        if (this.imageService.findAllByOwnerPhoneNumberDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerPhoneNumberDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-email/ascending")
+    public ResponseEntity<?> getImagesSortedByOwnerEmailAscending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerEmailAscending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerEmailAscending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerEmailAscending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerEmailAscending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerEmailAscending() method called.");
+
+        if (this.imageService.findAllByOwnerEmailAsc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerEmailAsc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        }
+    }
+
+    @GetMapping("/sort-by/owner-email/descending")
+    public ResponseEntity<?> getImagesSortedByOwnerEmailDescending() {
+        this.logger.info("INFO: Image REST API - getImagesSortedByOwnerEmailDescending() method called.");
+        this.logger.debug("DEBUG: Image REST API - getImagesSortedByOwnerEmailDescending() method called.");
+        this.logger.trace("TRACE: Image REST API - getImagesSortedByOwnerEmailDescending() method called.");
+        this.logger.warn("WARN: Image REST API - getImagesSortedByOwnerEmailDescending() method called.");
+        this.logger.error("ERROR: Image REST API - getImagesSortedByOwnerEmailDescending() method called.");
+
+        if (this.imageService.findAllByOwnerEmailDesc() == null) {
+            try {
+                return new ResponseEntity<String>("No images found.", HttpStatus.NOT_FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else {
+            try {
+                return new ResponseEntity<List<ImageDto>>(this.imageService.findAllByOwnerEmailDesc(), HttpStatus.FOUND);
+            } catch (Exception exception) {
+                return new ResponseEntity<String>("Unknown error(s) occured retrieving images." + exception.toString(), HttpStatus.NOT_ACCEPTABLE);
             }
         }
     }
