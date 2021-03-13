@@ -3,11 +3,12 @@ package io.hieu.imagesapi.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
 //@RedisHash("Image")
-public class Image {
+public class Image implements Serializable {
 //    @Id
     private Long id;
     private byte[] imageAsBase64Format;
