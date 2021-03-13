@@ -36,8 +36,6 @@ public class ImageServiceImpl implements ImageService {
 
         try {
             this.imageMyBatisRepository.insert(ImageMapper.toEntity(imageDto));
-            Image createdImage = this.imageMyBatisRepository.findById(imageDto.getId());
-            Base64Converter.base64ToImage(createdImage.getImageAsBase64Format().toString(), createdImage.getImageTitle());
         } catch (Exception exception) {
             exception.printStackTrace();
         }

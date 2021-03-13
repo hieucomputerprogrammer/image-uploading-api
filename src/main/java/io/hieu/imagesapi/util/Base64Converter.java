@@ -14,8 +14,8 @@ public class Base64Converter {
         return imageAsBase64String;
     }
 
-    public static void base64ToImage(String imageAsBase64String, String imageTitle) throws IOException {
+    public static void base64ToImage(String imageAsBase64String, String imageLocation) throws IOException {
         byte[] image = Base64.getDecoder().decode(imageAsBase64String);
-        FileUtils.writeByteArrayToFile(new File(imageTitle), image);
+        FileUtils.writeByteArrayToFile(new File(imageLocation), image);
     }
 }
