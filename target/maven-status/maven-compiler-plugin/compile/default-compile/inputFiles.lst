@@ -6,6 +6,7 @@ D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\repository\ImageSpringDataJpaRepository.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\service\ExportToMsExcelService.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\service\ExportToCsvService.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\util\Base64Converter.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\config\OpenApiConfiguration.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\dto\model\ImageDto.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\ImagesApiApplication.java

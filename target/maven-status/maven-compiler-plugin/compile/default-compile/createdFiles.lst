@@ -16,3 +16,4 @@ io\hieu\imagesapi\ImagesApiApplication.class
 io\hieu\imagesapi\repository\ImageSpringDataJpaRepository.class
 io\hieu\imagesapi\repository\mybatis\ImageMyBatisRepository.class
 io\hieu\imagesapi\service\ExportToCsvService.class
+io\hieu\imagesapi\util\Base64Converter.class
