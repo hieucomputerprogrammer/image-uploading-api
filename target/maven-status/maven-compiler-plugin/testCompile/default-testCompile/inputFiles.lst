@@ -2,5 +2,5 @@ D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi
 D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\web\api\rest\ImageRestApiTest.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\ImagesApiApplicationTests.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\repository\mybatis\ImageMyBatisRepositoryTest.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\web\controller\ImageControllerTest.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\service\impl\ImageServiceImplTest.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\test\java\io\hieu\imagesapi\web\controller\HomeControllerTest.java

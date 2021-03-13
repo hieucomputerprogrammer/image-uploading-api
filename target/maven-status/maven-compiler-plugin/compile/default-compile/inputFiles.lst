@@ -14,5 +14,5 @@ D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\web\api\rest\ImageRestApi.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\service\impl\ExportToCsvServiceImpl.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\config\ApplicationConfiguration.java
-D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\web\controller\ImageController.java
 D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\service\impl\ImageServiceImpl.java
+D:\Hieu\Java\Java Projects\Images API\images-api\src\main\java\io\hieu\imagesapi\web\controller\HomeController.java
