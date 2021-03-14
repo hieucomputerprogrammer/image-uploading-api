@@ -8,6 +8,9 @@ import io.hieu.imagesapi.service.ImageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -188,12 +191,14 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    @Cacheable(value = "images",key = "#id")
     public ImageDto findById(Long id) {
         this.logger.info("INFO: Image Service - findById() method called.");
         this.logger.debug("DEBUG: Image Service - findById() method called.");
         this.logger.trace("TRACE: Image Service - findById() method called.");
         this.logger.warn("WARN: Image Service - findById() method called.");
         this.logger.error("ERROR: Image Service - findById() method called.");
+        this.logger.info("TESTING REDIS CACHING: Fetching image data with ID number: " + id + " from the database.");
 
         try {
             return ImageMapper.toDto(this.imageMyBatisRepository.findById(id));
@@ -481,6 +486,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    @CachePut(value = "images", key = "#id")
     public ImageDto update(Long id, ImageDto imageDto) {
         this.logger.info("INFO: Image Service - update() method called.");
         this.logger.debug("DEBUG: Image Service - update() method called.");
@@ -510,6 +516,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
+    @CacheEvict(value = "images", allEntries = true)
     public void deleteById(Long id) {
         this.logger.info("INFO: Image Service - deleteById() method called.");
         this.logger.debug("DEBUG: Image Service - deleteById() method called.");

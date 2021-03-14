@@ -1,9 +1,10 @@
 package io.hieu.imagesapi.dto.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class ImageDto {
+public class ImageDto implements Serializable {
     private Long id;
     private byte[] imageAsBase64Format;
     private String imageTitle;

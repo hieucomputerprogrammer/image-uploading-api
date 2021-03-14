@@ -102,7 +102,6 @@ public class ImageRestApi {
     }
 
     @GetMapping("/{id}")
-//    @Cacheable(value = "images",key = "#id")
     public ResponseEntity<?> getImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - findImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - findImageById() method called.");
@@ -577,7 +576,6 @@ public class ImageRestApi {
     }
 
     @PutMapping("/{id}")
-//    @CachePut(value = "images",key = "#id")
     public ResponseEntity<?> updateImage(final @PathVariable("id") Long id, final @RequestBody ImageDto imageDto) {
         this.logger.info("INFO: Image REST API - updateImage() method called.");
         this.logger.debug("DEBUG: Image REST API - updateImage() method called.");
@@ -601,7 +599,6 @@ public class ImageRestApi {
     }
 
     @DeleteMapping("/{id}")
-//    @CacheEvict(value = "images", allEntries = true)
     public ResponseEntity<?> deleteImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - deleteImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - deleteImageById() method called.");
