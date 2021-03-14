@@ -9,17 +9,16 @@ import java.util.List;
 
 //@Repository
 public class ImageRedisRepository {
-    private static final String HASH_KEY = "Product";
-    private final RedisTemplate redisTemplate;
+    private static final String HASH_KEY = "IMAGE";
+    private RedisTemplate redisTemplate;
 
     @Autowired
     public ImageRedisRepository(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
-    public Image save(Image image) {
+    public void save(Image image) {
         this.redisTemplate.opsForHash().put(this.HASH_KEY, image.getId(), image);
-        return image;
     }
 
     public List<Image> findAll() {
@@ -28,6 +27,10 @@ public class ImageRedisRepository {
 
     public Image findById(Long id) {
         return (Image) this.redisTemplate.opsForHash().get(this.HASH_KEY, id);
+    }
+
+    public void update(Image image) {
+        this.save(image);
     }
 
     public String deleteById(Long id) {

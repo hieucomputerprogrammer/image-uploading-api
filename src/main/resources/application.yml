@@ -33,7 +33,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/images_api
     username: postgres
-    password: postgres
+    password:
     initialization-mode: always
   jpa:
     database: postgresql
@@ -56,6 +56,19 @@ spring:
         max-request-size: 5MB
   profiles:
     active:
+  redis:
+    host: localhost
+      password:
+      port: 6379
+      lettuce:
+        shutdown-timeout: 30000
+        pool:
+          # Connection pool maximum connections (negative for no limit) (default value is 8)
+          max-active: 30
+          # Maximum free connections in connection pool (default value is 8)
+          max-idle: 8
+          # Minimum free connections in connection pool (default value is 0)
+          min-idle: 0
 
 
 # MYSQL DATABASE CONFIGURATION:
