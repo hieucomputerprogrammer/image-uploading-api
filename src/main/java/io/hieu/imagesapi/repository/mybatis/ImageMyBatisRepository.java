@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 @Mapper
 public interface ImageMyBatisRepository {
     @Insert("INSERT INTO image(image_as_base64_format, image_title, owner_name, owner_phone_number, owner_email) " +

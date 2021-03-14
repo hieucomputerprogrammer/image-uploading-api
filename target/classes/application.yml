@@ -10,7 +10,7 @@
 #    driver-class-name: org.h2.Driver
 #    url: jdbc:h2:mem:images_api
 #    username: sa
-#    password: # Enter your own password
+#    password: # Enter your H2 database password
 #  jpa:
 #    database: h2
 #    database-platform: org.hibernate.dialect.H2Dialect
@@ -86,7 +86,7 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/images_api
 #    username: root
-#    password: # Enter your own password
+#    password: # Enter your MySQL database password.
 #  jpa:
 #    database: mysql
 #    database-platform: org.hibernate.dialect.MySQL5Dialect
