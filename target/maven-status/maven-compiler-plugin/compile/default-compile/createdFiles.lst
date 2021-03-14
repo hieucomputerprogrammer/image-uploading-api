@@ -4,6 +4,7 @@ io\hieu\imagesapi\service\impl\ExportToCsvServiceImpl.class
 io\hieu\imagesapi\dto\mapper\ImageMapper.class
 io\hieu\imagesapi\web\api\rest\ImageRestApi.class
 io\hieu\imagesapi\dto\model\ImageDto.class
+io\hieu\imagesapi\exceptions\ResourceNotFoundException.class
 io\hieu\imagesapi\service\ExportToMsExcelService.class
 io\hieu\imagesapi\repository\springdatajpa\ImageSpringDataJpaRepository.class
 io\hieu\imagesapi\service\ExportToPdfService.class

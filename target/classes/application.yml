@@ -35,6 +35,8 @@ spring:
     username: postgres
     password: postgres
     initialization-mode: always
+    hikari:
+      initialization-fail-timeout: 0
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -56,19 +58,26 @@ spring:
         max-request-size: 5MB
   profiles:
     active:
-  redis:
-    host: localhost
-      password:
-      port: 6379
-      lettuce:
-        shutdown-timeout: 30000
-        pool:
-          # Connection pool maximum connections (negative for no limit) (default value is 8)
-          max-active: 30
-          # Maximum free connections in connection pool (default value is 8)
-          max-idle: 8
-          # Minimum free connections in connection pool (default value is 0)
-          min-idle: 0
+  # REDIS configuration to use Redis as a caching database:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      cache-null-values: true
+  # REDIS configuration to use Redis as a NoSQL database:
+#  redis:
+#    host: localhost
+#      password:
+#      port: 6379
+#      lettuce:
+#        shutdown-timeout: 30000
+#        pool:
+#          # Connection pool maximum connections (negative for no limit) (default value is 8)
+#          max-active: 30
+#          # Maximum free connections in connection pool (default value is 8)
+#          max-idle: 8
+#          # Minimum free connections in connection pool (default value is 0)
+#          min-idle: 0
 
 
 # MYSQL DATABASE CONFIGURATION:
@@ -100,3 +109,23 @@ spring:
 #        max-request-size: 5MB
 #  profiles:
 #    active:
+##   REDIS configuration to use Redis as a caching database:
+##  cache:
+##    type: redis
+##    redis:
+##      time-to-live: 60000
+##      cache-null-values: true
+##   REDIS configuration to use Redis as a NoSQL database:
+##  redis:
+##    host: localhost
+##      password:
+##      port: 6379
+##      lettuce:
+##        shutdown-timeout: 30000
+##        pool:
+##          # Connection pool maximum connections (negative for no limit) (default value is 8)
+##          max-active: 30
+##          # Maximum free connections in connection pool (default value is 8)
+##          max-idle: 8
+##          # Minimum free connections in connection pool (default value is 0)
+##          min-idle: 0

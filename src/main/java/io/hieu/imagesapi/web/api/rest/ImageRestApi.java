@@ -9,6 +9,9 @@ import io.hieu.imagesapi.util.Base64Converter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -99,6 +102,7 @@ public class ImageRestApi {
     }
 
     @GetMapping("/{id}")
+//    @Cacheable(value = "images",key = "#id")
     public ResponseEntity<?> getImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - findImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - findImageById() method called.");
@@ -573,6 +577,7 @@ public class ImageRestApi {
     }
 
     @PutMapping("/{id}")
+//    @CachePut(value = "images",key = "#id")
     public ResponseEntity<?> updateImage(final @PathVariable("id") Long id, final @RequestBody ImageDto imageDto) {
         this.logger.info("INFO: Image REST API - updateImage() method called.");
         this.logger.debug("DEBUG: Image REST API - updateImage() method called.");
@@ -596,6 +601,7 @@ public class ImageRestApi {
     }
 
     @DeleteMapping("/{id}")
+//    @CacheEvict(value = "images", allEntries = true)
     public ResponseEntity<?> deleteImageById(final @PathVariable("id") Long id) {
         this.logger.info("INFO: Image REST API - deleteImageById() method called.");
         this.logger.debug("DEBUG: Image REST API - deleteImageById() method called.");
