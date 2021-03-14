@@ -46,38 +46,38 @@ public class ImageMyBatisRepositoryTest {
     }
 
     @Test
-    public void findAll() {
+    public void testFindAll() {
     }
 
     @Test
-    public void findAllByImageTitle() {
+    public void testFindAllByImageTitle() {
     }
 
     @Test
-    public void findAllByOwnerName() {
+    public void testFindAllByOwnerName() {
     }
 
     @Test
-    public void findAllByOwnerPhoneNumber() {
+    public void testFindAllByOwnerPhoneNumber() {
     }
 
     @Test
-    public void findAllByOwnerEmail() {
+    public void testFindAllByOwnerEmail() {
     }
 
     @Test
-    public void findById() {
+    public void testFindById() {
     }
 
     @Test
-    public void update() {
+    public void testUpdate() {
     }
 
     @Test
-    public void deleteAll() {
+    public void testDeleteAll() {
     }
 
     @Test
-    public void deleteById() {
+    public void testDeleteById() {
     }
 }

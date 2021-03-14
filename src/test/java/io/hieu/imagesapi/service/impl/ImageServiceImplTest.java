@@ -944,12 +944,14 @@ public class ImageServiceImplTest {
 
     @Test
     public void deleteById_SelectedImageWithIdExists() {
-        Mockito.doThrow(new Exception()).when(this.imageMyBatisRepository).deleteById(Mockito.anyLong());
+//        Mockito.doThrow(new Exception()).when(this.imageMyBatisRepository).deleteById(Mockito.anyLong());
+        this.imageServiceImpl.deleteById(Mockito.anyLong());
     }
 
     @Test(expected = Exception.class)
     public void deleteById_SelectedImageWithIdNotFound() {
-        this.imageServiceImpl.deleteById(-1L);
+//        this.imageServiceImpl.deleteById(-1L);
+        Mockito.doThrow(new Exception()).when(this.imageMyBatisRepository).deleteById(Mockito.anyLong());
     }
 
     @Test
