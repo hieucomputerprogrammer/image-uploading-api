@@ -191,7 +191,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    @Cacheable(value = "images",key = "#id")
+    @Cacheable(value = "images", key = "#id")
     public ImageDto findById(Long id) {
         this.logger.info("INFO: Image Service - findById() method called.");
         this.logger.debug("DEBUG: Image Service - findById() method called.");
