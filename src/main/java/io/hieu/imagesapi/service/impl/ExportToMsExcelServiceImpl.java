@@ -1,6 +1,6 @@
 package io.hieu.imagesapi.service.impl;
 
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 import io.hieu.imagesapi.service.ExportToMsExcelService;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;

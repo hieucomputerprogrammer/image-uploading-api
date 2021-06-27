@@ -1,7 +1,7 @@
-package io.hieu.imagesapi.dto.mapper;
+package io.hieu.imagesapi.service.mapper;
 
 import io.hieu.imagesapi.domain.Image;
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 
 public class ImageMapper {
     public static ImageDto toDto(Image image) {

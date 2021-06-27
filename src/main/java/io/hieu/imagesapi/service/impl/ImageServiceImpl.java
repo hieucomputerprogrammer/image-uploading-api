@@ -1,8 +1,8 @@
 package io.hieu.imagesapi.service.impl;
 
 import io.hieu.imagesapi.domain.Image;
-import io.hieu.imagesapi.dto.mapper.ImageMapper;
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.mapper.ImageMapper;
+import io.hieu.imagesapi.service.dto.ImageDto;
 import io.hieu.imagesapi.repository.mybatis.ImageMyBatisRepository;
 import io.hieu.imagesapi.service.ImageService;
 import org.slf4j.Logger;

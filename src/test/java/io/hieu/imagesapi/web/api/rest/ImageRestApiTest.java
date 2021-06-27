@@ -1,6 +1,6 @@
 package io.hieu.imagesapi.web.api.rest;
 
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 import io.hieu.imagesapi.service.ImageService;
 import org.junit.After;
 import org.junit.Assert;

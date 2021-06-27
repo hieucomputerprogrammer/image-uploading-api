@@ -5,7 +5,7 @@ import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 import io.hieu.imagesapi.service.ExportToPdfService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

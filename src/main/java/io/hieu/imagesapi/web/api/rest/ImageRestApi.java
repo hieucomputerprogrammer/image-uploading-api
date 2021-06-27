@@ -1,17 +1,14 @@
 package io.hieu.imagesapi.web.api.rest;
 
 import com.lowagie.text.DocumentException;
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 import io.hieu.imagesapi.service.ImageService;
 import io.hieu.imagesapi.service.impl.ExportToMsExcelServiceImpl;
 import io.hieu.imagesapi.service.impl.ExportToPdfServiceImpl;
-import io.hieu.imagesapi.util.Base64Converter;
+import io.hieu.imagesapi.service.util.Base64Converter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -31,9 +31,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/images_api
+    url: jdbc:postgresql://localhost:5432/images
     username: postgres
-    password: # Enter your PostgreSQL database password.
+    password: postgres
     initialization-mode: always
     hikari:
       initialization-fail-timeout: 0

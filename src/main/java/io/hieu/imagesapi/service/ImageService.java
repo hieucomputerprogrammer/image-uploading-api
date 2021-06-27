@@ -1,6 +1,6 @@
 package io.hieu.imagesapi.service;
 
-import io.hieu.imagesapi.dto.model.ImageDto;
+import io.hieu.imagesapi.service.dto.ImageDto;
 
 import java.util.List;
 

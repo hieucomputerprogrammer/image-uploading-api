@@ -1,4 +1,4 @@
-package io.hieu.imagesapi.dto.model;
+package io.hieu.imagesapi.service.dto;
 
 import java.io.Serializable;
 import java.util.Arrays;

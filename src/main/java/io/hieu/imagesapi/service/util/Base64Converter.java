@@ -1,4 +1,4 @@
-package io.hieu.imagesapi.util;
+package io.hieu.imagesapi.service.util;
 
 import org.apache.commons.io.FileUtils;
 
